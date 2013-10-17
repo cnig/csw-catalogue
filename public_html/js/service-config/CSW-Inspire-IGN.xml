@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<serviceConfig
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='./js/conwet/service-config/service_config.xsd'>
+    <request>
+        <url>http://www.ign.es/csw-inspire/srv/es/csw</url>
+        <typename>gmd:MD_Metadata</typename>
+        <filter><![CDATA[{{property}} like '%{{word}}%']]></filter>
+        <search>
+            <option label="Asunto">subject</option>
+        </search>
+    </request>
+    <results>
+        <locationInfo>title</locationInfo>
+        <bbox1>BoundingBox/LowerCorner</bbox1>
+        <bbox2>BoundingBox/UpperCorner</bbox2>
+        <srs attribute="crs">BoundingBox</srs>
+        <displayInfo>title</displayInfo>
+    </results>
+    <details>
+        <detailslevel>
+            <label>Abstracto</label>
+            <path>abstract</path>
+        </detailslevel>
+        <detailslevel>
+            <label>Contenido</label>
+            <path>source</path>
+        </detailslevel>
+    </details>
+</serviceConfig>
