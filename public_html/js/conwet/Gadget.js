@@ -70,9 +70,12 @@ conwet.Gadget = Class.create({
         header.appendChild(serviceLabel);
 
         //Service selector
-        this.serviceSelect = new StyledElements.StyledSelect({"onChange": function(){
+        this.serviceSelect = new StyledElements.StyledSelect();
+        this.serviceSelect.addEventListener("change", function(){
+            if(this.serviceSelect.getValue() != "")
                 this.setWfsService(JSON.parse(this.serviceSelect.getValue()));
-        }});
+        }.bind(this));
+        
         this.serviceSelect.addClassName("service");
         this.serviceSelect.textDiv.hide();
         this.serviceSelect.insertInto(header);
