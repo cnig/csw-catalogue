@@ -168,6 +168,8 @@ conwet.CSWController = Class.create({
             srs=srs[1];
         else
             srs = "";
+        if (srs = "EPSG: 23030")
+            srs = "";
         
         var location1Config = this.gadget.serviceConfiguration.results[0].bbox1[0];
         var location2Config = this.gadget.serviceConfiguration.results[0].bbox2[0];

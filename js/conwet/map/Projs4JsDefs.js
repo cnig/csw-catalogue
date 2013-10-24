@@ -25,7 +25,7 @@
 // http://spatialreference.org/
 
 Proj4js.defs["EPSG:4326"]   = "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees +no_defs";
-Proj4js.defs["EPSG:23030"]  = "+proj=utm +zone=30 +ellps=intl +towgs84=-131,-100.3,-163.4,-1.244,-0.020,-1.144,9.39 +units=m +no_defs";//"+proj=utm +zone=30 +ellps=intl +units=m +no_defs";
+Proj4js.defs["EPSG:23030"]  = "+proj=utm +zone=30 +ellps=intl"+ " +towgs84=-131,-100.3,-163.4,-1.244,-0.020,-1.144,9.39 "+ " +units=m +no_defs";//"+proj=utm +zone=30 +ellps=intl +units=m +no_defs";
 Proj4js.defs["EPSG:900913"] = "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs";
 
 
