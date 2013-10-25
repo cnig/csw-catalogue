@@ -33,7 +33,7 @@ conwet.Gadget = Class.create({
         this.outputTextEvent   = new conwet.events.Event('output_text_event');
         this.searchTextEvent   = new conwet.events.Event('search_text_event');
         
-        this.controller = new conwet.CSWController(this);
+        this.controller = null;
 
         //Receive multiple values and search with them
         this.searchTextSlot    = new conwet.events.Slot('search_text_slot', function(text) {
@@ -72,6 +72,8 @@ conwet.Gadget = Class.create({
         // Attributes
         this.messageManager = new conwet.ui.MessageManager(3000);
         this.transformer    = new conwet.map.ProjectionTransformer();
+        
+        this.parseUtils = new conwet.parser.ParseUtils();
 
         this.draw();
     },
@@ -212,6 +214,9 @@ conwet.Gadget = Class.create({
             this.controller = new conwet.CSWController(this);
         else
             this.showMessage(_("Tipo de servicio desconocido"));
+        
+        //Clean the list of results
+        this.clearUI();
     },
 
     /*
