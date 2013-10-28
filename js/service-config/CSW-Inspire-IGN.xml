@@ -16,6 +16,7 @@
         <bbox1>BoundingBox/LowerCorner</bbox1>
         <bbox2>BoundingBox/UpperCorner</bbox2>
         <srs attribute="crs">BoundingBox</srs>
+        <outputText>title</outputText>
         <displayInfo>title</displayInfo>
     </results>
     <details>
