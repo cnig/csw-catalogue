@@ -21,42 +21,74 @@
  *     <http://www.gnu.org/licenses/gpl.txt>.
  *
  */
-use("conwet");
+use("conwet.parser");
 
-conwet.CSWController = Class.create({
+conwet.parser.AutoParser = Class.create({
+    
     initialize: function(gadget) {
         this.gadget = gadget;
     },
+    
     _entityToHtml: function(entity) {
         var html = document.createElement("div");
         html.className = "featureContainer";
-        _createLevel(entity, html, "", 0);        
+        this._createLevel(entity, html);   
+        return html;
     },
-    _createLevel: function (entity, parent, name, level){
-        var html = document.createElement('div');
-        var text = "";        
-        var attributes="";
-        var indent = "";
-        for (var i = 0; i<level; i++)
-            indent += "    ";
+    
+    _createLevel: function (entity, parent, nodeName){
         
-        if (entity._attributes != null){
-            for( var i = 0; i < entity._attributes.length; i++){
-                attributes+=" "+entity[entity._attributes[i]];
-            }
-        }
-        if (entity.Text != null){
-            text = entity.Text;
-        }
-        for (var index in entity) {
+        if(nodeName == null)
+            nodeName = "response";
+        
+        var head = document.createElement('div');
+        head.className = "featureHead";
+        head.innerHTML = nodeName;
+        parent.appendChild(head);
+        
+        if(entity._attributes != null){
+            var attrs = document.createElement('div');
+            attrs.className = "featureAttributesContainer";
+            entity._attributes.each(function(elem, context){
+                var attr = document.createElement('div');
+                var val = document.createElement('div');
+                attr.innerHTML = elem;
+                attr.className = "attribute";
+                val.innerHTML = entity[elem];
+                val.className = "fieldValue";
+                attrs.appendChild(attr);
+                attrs.appendChild(val);
+            });
 
-            if (index != "Text" && index != "_attributes" && index != "_children"){
-                if (entrada.Text != null && entrada.Text !=""){
-                    
+            parent.appendChild(attrs);
+        }
+        
+        var fields = document.createElement('div');
+        fields.className = "featureFieldsContainer";
+        
+        if(entity.Text != null && entity.Text != ""){
+            var valueDiv = document.createElement("div");
+            valueDiv.className = "fieldValue";
+            valueDiv.innerHTML = entity.Text;
+            fields.appendChild(valueDiv)
+        }else{
+            var ignore = ["RootName", "Text", "_attributes", "_children", "numberOfFeatures", "typeOf"];
+            if(entity._attributes != null){
+                entity._attributes.each(function(elem, context){
+                    ignore.push(elem);
+                });
+            }
+            
+            for(var child in entity){
+                if(ignore.indexOf(child) == -1){
+                    entity[child].each(function(elem, _){
+                        this._createLevel(elem, fields, child);
+                    }.bind(this));
                 }
             }
         }
         
-        html.addChild(document.createTextNode(indent + name + attributes + ": " + text))
+        parent.appendChild(fields);
+        
     }
 });
