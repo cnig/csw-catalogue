@@ -4,7 +4,7 @@
         <Vendor>CoNWeT</Vendor>
         <Name>csw-catalogue</Name>
         <DisplayName>Catálogo CSW</DisplayName>
-        <Version>0.3</Version>
+        <Version>0.3.1</Version>
         <Author>avera</Author>
         <Mail>avera@conwet.com</Mail>
         <Description>This widget allows users to make place names searches by means of a CSW catalogue service.</Description>
