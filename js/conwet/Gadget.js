@@ -32,7 +32,6 @@ conwet.Gadget = Class.create({
     initialize: function() {
         
         this.locationInfoEvent = new conwet.events.Event('location_info_event');
-        this.locationEvent     = new conwet.events.Event('location_event');
         this.outputTextEvent   = new conwet.events.Event('output_text_event');
         this.searchTextEvent   = new conwet.events.Event('search_text_event');
         
@@ -238,18 +237,6 @@ conwet.Gadget = Class.create({
             services.push(service);
             this.servicesPreference.set(JSON.stringify(services));
         }
-    },
-
-    /*
-     * This functions sends an event with the location.
-     */
-    sendLocation: function(loc1, loc2) {
-        var send = [];
-        send.push(loc1.lon);
-        send.push(loc1.lat);
-        send.push(loc2.lon);
-        send.push(loc2.lat);
-        this.locationEvent.send(JSON.stringify(send));
     },
 
     /*

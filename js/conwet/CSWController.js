@@ -213,7 +213,6 @@ conwet.CSWController = Class.create({
         }
 
         //Send the location and location info (location + name)
-        this.gadget.sendLocation(location1, location2);
         this.gadget.sendLocationInfo(location1, location2, locationInfo);
 
     }
