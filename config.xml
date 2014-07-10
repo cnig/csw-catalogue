@@ -7,7 +7,7 @@
         <Version>0.3.3</Version>
         <Author>avera</Author>
         <Mail>avera@conwet.com</Mail>
-        <Description>This widget allows users to make place names searches by means of a CSW catalogue service.</Description>
+        <Description>This widget allows users to discover new services through their metadata.</Description>
         <ImageURI>img/nomenclator.png</ImageURI>
         <iPhoneImageURI>img/nomenclator.png</iPhoneImageURI>
         <WikiURI>http://hercules.ls.fi.upm.es/public/conwet/ogf.html#getfeature-widget</WikiURI>
