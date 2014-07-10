@@ -28,5 +28,9 @@
             <label>Contenido</label>
             <path>source</path>
         </detailslevel>
+        <detailslevel>
+            <label>URI</label>
+            <path>URI</path>
+        </detailslevel>
     </details>
 </serviceConfig>

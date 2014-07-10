@@ -254,6 +254,22 @@ conwet.Gadget = Class.create({
             "title": title
         }]));
     },
+    sendServiceInfo: function(url, name){
+        var url2 = url.toLowerCase();
+        var type = "WMS"
+        if (url2.indexOf("wmts") != -1){
+            type = "WMTS"
+        }else if (url2.indexOf("wms-c") != -1){
+            type = "WMSC"
+        }
+        url = url.split("?")[0];
+        var service = {
+                type: type,
+                name: name,
+                url : url
+            };
+        this.locationInfoEvent.send(JSON.stringify(service));
+    },
 
     sendText: function(text) {
         this.outputTextEvent.send(text);

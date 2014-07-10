@@ -185,8 +185,11 @@ conwet.CSWController = Class.create({
     _showDetails: function(entity) {
         $("info").innerHTML = ""; 
         $("info").appendChild(this.parser._entityToHtml(entity));
+        this.gadget.sendServiceInfo(entity.URI[0].Text, entity.title[0].Text)
         
-        var srsConfig = this.gadget.serviceConfiguration.results[0].srs[0];
+        
+        
+        /*var srsConfig = this.gadget.serviceConfiguration.results[0].srs[0];
         var srs      = this.gadget.parseUtils.getDOMValue(entity, srsConfig).split(":::", 2);
         if(srs.length > 1)
             srs=srs[1];
@@ -213,7 +216,7 @@ conwet.CSWController = Class.create({
         }
 
         //Send the location and location info (location + name)
-        this.gadget.sendLocationInfo(location1, location2, locationInfo);
+        this.gadget.sendLocationInfo(location1, location2, locationInfo);*/
 
     }
     
