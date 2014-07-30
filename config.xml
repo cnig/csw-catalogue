@@ -3,8 +3,8 @@
     <Catalog.ResourceDescription>
         <Vendor>CoNWeT</Vendor>
         <Name>csw-catalogue</Name>
-        <DisplayName>Catálogo CSW</DisplayName>
-        <Version>0.3.3</Version>
+        <DisplayName>CSW Catalogue</DisplayName>
+        <Version>0.3.4</Version>
         <Author>avera</Author>
         <Mail>avera@conwet.com</Mail>
         <Description>This widget allows users to discover new services through their metadata.</Description>

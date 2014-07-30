@@ -45,7 +45,7 @@ conwet.CSWController = Class.create({
         var baseURL = service.url;
 
         if ((baseURL == "") || (word == "")) {
-            this.gadget.showMessage(_("Faltan datos en el formulario."));
+            this.gadget.showMessage(_("Missing data from form."));
             return;
         }
 
@@ -72,7 +72,7 @@ conwet.CSWController = Class.create({
         };
         
 
-        this.gadget.showMessage("Solicitando datos al servidor.", true);
+        this.gadget.showMessage("Requesting data from server.", true);
         //TODO Gif chulo para esperar
         MashupPlatform.http.makeRequest(baseURL, {
             method: 'GET',
@@ -85,7 +85,7 @@ conwet.CSWController = Class.create({
                 this._drawEntities(xmlObject);
             }.bind(this),
             onFailure: function(){
-                this.gadget.showError("El servidor no responde.");
+                this.gadget.showError("Server not responding..");
             }.bind(this)
         });
     },

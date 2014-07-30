@@ -86,7 +86,7 @@ conwet.Gadget = Class.create({
 
         var serviceLabel = document.createElement("div");
         $(serviceLabel).addClassName("label");
-        serviceLabel.appendChild(document.createTextNode(_("Servicio CSW:")));
+        serviceLabel.appendChild(document.createTextNode(_("CSW Service:")));
         header.appendChild(serviceLabel);
 
         //Service selector
@@ -111,7 +111,7 @@ conwet.Gadget = Class.create({
 
         var searchLabel = document.createElement("div");
         $(searchLabel).addClassName("label");
-        searchLabel.appendChild(document.createTextNode(_("Texto a buscar:")));
+        searchLabel.appendChild(document.createTextNode(_("Search query:")));
         header.appendChild(searchLabel);
 
         //Select with the properties that can be used to search in this service
@@ -139,8 +139,8 @@ conwet.Gadget = Class.create({
 
         var searchButton = conwet.ui.UIUtils.createButton({
             "classNames": ["search_button"],
-            "title"     : _("Buscar topónimo"),
-            "value"     : _("Buscar"),
+            "title"     : _("Search"),
+            "value"     : _("Search"),
             "onClick"   : this.launchSearch.bind(this)
         });
         header.appendChild(searchButton);
@@ -177,12 +177,12 @@ conwet.Gadget = Class.create({
                         this.setWfsService(service);
 
                     //Tell everything is ok and save the services list (persistent list)
-                    this.showMessage(_("Se ha recibido un nuevo servidor."));
+                    this.showMessage(_("New server added."));
                     this.save(service);
                     
                 }.bind(this),
                 onFailure: function(transport) {
-                    this.showMessage(_("Error al cargar la configuración del servicio"));
+                    this.showMessage(_("Error loading server configuration."));
                 }.bind(this)
             });
         }
@@ -213,7 +213,7 @@ conwet.Gadget = Class.create({
         if(service.service_type == 'CSW') 
             this.controller = new conwet.CSWController(this);
         else
-            this.showMessage(_("Tipo de servicio desconocido"));
+            this.showMessage(_("Unknown service type."));
         
         //Clean the list of results
         this.clearUI();
@@ -261,6 +261,8 @@ conwet.Gadget = Class.create({
             type = "WMTS"
         }else if (url2.indexOf("wms-c") != -1){
             type = "WMSC"
+        }else if (url2.indexOf("csw") != -1){
+            type = "CSW"
         }
         url = url.split("?")[0];
         var service = {
