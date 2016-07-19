@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<widget xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="CoNWeT" name="csw-catalogue" version="0.3.4">
+<widget xmlns="http://wirecloud.conwet.fi.upm.es/ns/macdescription/1" vendor="CoNWeT" name="csw-catalogue" version="0.3.5">
   <details>
     <title>CSW Catalogue</title>
     <email>avera@conwet.com</email>
